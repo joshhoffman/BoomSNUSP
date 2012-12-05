@@ -1,0 +1,462 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0393EF5C166FC23C00C7F5FA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0393EF5B166FC23C00C7F5FA /* Cocoa.framework */; };
+		0393EF66166FC23C00C7F5FA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0393EF64166FC23C00C7F5FA /* InfoPlist.strings */; };
+		0393EF68166FC23C00C7F5FA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0393EF67166FC23C00C7F5FA /* main.m */; };
+		0393EF6C166FC23C00C7F5FA /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 0393EF6A166FC23C00C7F5FA /* Credits.rtf */; };
+		0393EF6F166FC23C00C7F5FA /* THWAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0393EF6E166FC23C00C7F5FA /* THWAppDelegate.m */; };
+		0393EF72166FC23C00C7F5FA /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0393EF70166FC23C00C7F5FA /* MainMenu.xib */; };
+		0393EF7A166FC23C00C7F5FA /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0393EF79166FC23C00C7F5FA /* SenTestingKit.framework */; };
+		0393EF7B166FC23C00C7F5FA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0393EF5B166FC23C00C7F5FA /* Cocoa.framework */; };
+		0393EF83166FC23C00C7F5FA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0393EF81166FC23C00C7F5FA /* InfoPlist.strings */; };
+		0393EF86166FC23C00C7F5FA /* BoomSNUSPTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0393EF85166FC23C00C7F5FA /* BoomSNUSPTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0393EF7C166FC23C00C7F5FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0393EF4E166FC23C00C7F5FA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0393EF56166FC23C00C7F5FA;
+			remoteInfo = BoomSNUSP;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0393EF57166FC23C00C7F5FA /* BoomSNUSP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoomSNUSP.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0393EF5B166FC23C00C7F5FA /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		0393EF5E166FC23C00C7F5FA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		0393EF5F166FC23C00C7F5FA /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		0393EF60166FC23C00C7F5FA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		0393EF63166FC23C00C7F5FA /* BoomSNUSP-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BoomSNUSP-Info.plist"; sourceTree = "<group>"; };
+		0393EF65166FC23C00C7F5FA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0393EF67166FC23C00C7F5FA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		0393EF69166FC23C00C7F5FA /* BoomSNUSP-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BoomSNUSP-Prefix.pch"; sourceTree = "<group>"; };
+		0393EF6B166FC23C00C7F5FA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		0393EF6D166FC23C00C7F5FA /* THWAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THWAppDelegate.h; sourceTree = "<group>"; };
+		0393EF6E166FC23C00C7F5FA /* THWAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THWAppDelegate.m; sourceTree = "<group>"; };
+		0393EF71166FC23C00C7F5FA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		0393EF78166FC23C00C7F5FA /* BoomSNUSPTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoomSNUSPTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0393EF79166FC23C00C7F5FA /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		0393EF80166FC23C00C7F5FA /* BoomSNUSPTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BoomSNUSPTests-Info.plist"; sourceTree = "<group>"; };
+		0393EF82166FC23C00C7F5FA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0393EF84166FC23C00C7F5FA /* BoomSNUSPTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoomSNUSPTests.h; sourceTree = "<group>"; };
+		0393EF85166FC23C00C7F5FA /* BoomSNUSPTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BoomSNUSPTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0393EF54166FC23C00C7F5FA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0393EF5C166FC23C00C7F5FA /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0393EF74166FC23C00C7F5FA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0393EF7A166FC23C00C7F5FA /* SenTestingKit.framework in Frameworks */,
+				0393EF7B166FC23C00C7F5FA /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0393EF4C166FC23C00C7F5FA = {
+			isa = PBXGroup;
+			children = (
+				0393EF61166FC23C00C7F5FA /* BoomSNUSP */,
+				0393EF7E166FC23C00C7F5FA /* BoomSNUSPTests */,
+				0393EF5A166FC23C00C7F5FA /* Frameworks */,
+				0393EF58166FC23C00C7F5FA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0393EF58166FC23C00C7F5FA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0393EF57166FC23C00C7F5FA /* BoomSNUSP.app */,
+				0393EF78166FC23C00C7F5FA /* BoomSNUSPTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0393EF5A166FC23C00C7F5FA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0393EF5B166FC23C00C7F5FA /* Cocoa.framework */,
+				0393EF79166FC23C00C7F5FA /* SenTestingKit.framework */,
+				0393EF5D166FC23C00C7F5FA /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0393EF5D166FC23C00C7F5FA /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0393EF5E166FC23C00C7F5FA /* AppKit.framework */,
+				0393EF5F166FC23C00C7F5FA /* CoreData.framework */,
+				0393EF60166FC23C00C7F5FA /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		0393EF61166FC23C00C7F5FA /* BoomSNUSP */ = {
+			isa = PBXGroup;
+			children = (
+				0393EF6D166FC23C00C7F5FA /* THWAppDelegate.h */,
+				0393EF6E166FC23C00C7F5FA /* THWAppDelegate.m */,
+				0393EF70166FC23C00C7F5FA /* MainMenu.xib */,
+				0393EF62166FC23C00C7F5FA /* Supporting Files */,
+			);
+			path = BoomSNUSP;
+			sourceTree = "<group>";
+		};
+		0393EF62166FC23C00C7F5FA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0393EF63166FC23C00C7F5FA /* BoomSNUSP-Info.plist */,
+				0393EF64166FC23C00C7F5FA /* InfoPlist.strings */,
+				0393EF67166FC23C00C7F5FA /* main.m */,
+				0393EF69166FC23C00C7F5FA /* BoomSNUSP-Prefix.pch */,
+				0393EF6A166FC23C00C7F5FA /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0393EF7E166FC23C00C7F5FA /* BoomSNUSPTests */ = {
+			isa = PBXGroup;
+			children = (
+				0393EF84166FC23C00C7F5FA /* BoomSNUSPTests.h */,
+				0393EF85166FC23C00C7F5FA /* BoomSNUSPTests.m */,
+				0393EF7F166FC23C00C7F5FA /* Supporting Files */,
+			);
+			path = BoomSNUSPTests;
+			sourceTree = "<group>";
+		};
+		0393EF7F166FC23C00C7F5FA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0393EF80166FC23C00C7F5FA /* BoomSNUSPTests-Info.plist */,
+				0393EF81166FC23C00C7F5FA /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0393EF56166FC23C00C7F5FA /* BoomSNUSP */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0393EF89166FC23C00C7F5FA /* Build configuration list for PBXNativeTarget "BoomSNUSP" */;
+			buildPhases = (
+				0393EF53166FC23C00C7F5FA /* Sources */,
+				0393EF54166FC23C00C7F5FA /* Frameworks */,
+				0393EF55166FC23C00C7F5FA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BoomSNUSP;
+			productName = BoomSNUSP;
+			productReference = 0393EF57166FC23C00C7F5FA /* BoomSNUSP.app */;
+			productType = "com.apple.product-type.application";
+		};
+		0393EF77166FC23C00C7F5FA /* BoomSNUSPTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0393EF8C166FC23C00C7F5FA /* Build configuration list for PBXNativeTarget "BoomSNUSPTests" */;
+			buildPhases = (
+				0393EF73166FC23C00C7F5FA /* Sources */,
+				0393EF74166FC23C00C7F5FA /* Frameworks */,
+				0393EF75166FC23C00C7F5FA /* Resources */,
+				0393EF76166FC23C00C7F5FA /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0393EF7D166FC23C00C7F5FA /* PBXTargetDependency */,
+			);
+			name = BoomSNUSPTests;
+			productName = BoomSNUSPTests;
+			productReference = 0393EF78166FC23C00C7F5FA /* BoomSNUSPTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0393EF4E166FC23C00C7F5FA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = THW;
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Josh Hoffman";
+			};
+			buildConfigurationList = 0393EF51166FC23C00C7F5FA /* Build configuration list for PBXProject "BoomSNUSP" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 0393EF4C166FC23C00C7F5FA;
+			productRefGroup = 0393EF58166FC23C00C7F5FA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0393EF56166FC23C00C7F5FA /* BoomSNUSP */,
+				0393EF77166FC23C00C7F5FA /* BoomSNUSPTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0393EF55166FC23C00C7F5FA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0393EF66166FC23C00C7F5FA /* InfoPlist.strings in Resources */,
+				0393EF6C166FC23C00C7F5FA /* Credits.rtf in Resources */,
+				0393EF72166FC23C00C7F5FA /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0393EF75166FC23C00C7F5FA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0393EF83166FC23C00C7F5FA /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0393EF76166FC23C00C7F5FA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0393EF53166FC23C00C7F5FA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0393EF68166FC23C00C7F5FA /* main.m in Sources */,
+				0393EF6F166FC23C00C7F5FA /* THWAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0393EF73166FC23C00C7F5FA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0393EF86166FC23C00C7F5FA /* BoomSNUSPTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0393EF7D166FC23C00C7F5FA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0393EF56166FC23C00C7F5FA /* BoomSNUSP */;
+			targetProxy = 0393EF7C166FC23C00C7F5FA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		0393EF64166FC23C00C7F5FA /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0393EF65166FC23C00C7F5FA /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		0393EF6A166FC23C00C7F5FA /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0393EF6B166FC23C00C7F5FA /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		0393EF70166FC23C00C7F5FA /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0393EF71166FC23C00C7F5FA /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		0393EF81166FC23C00C7F5FA /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0393EF82166FC23C00C7F5FA /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0393EF87166FC23C00C7F5FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		0393EF88166FC23C00C7F5FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		0393EF8A166FC23C00C7F5FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BoomSNUSP/BoomSNUSP-Prefix.pch";
+				INFOPLIST_FILE = "BoomSNUSP/BoomSNUSP-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		0393EF8B166FC23C00C7F5FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BoomSNUSP/BoomSNUSP-Prefix.pch";
+				INFOPLIST_FILE = "BoomSNUSP/BoomSNUSP-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		0393EF8D166FC23C00C7F5FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BoomSNUSP.app/Contents/MacOS/BoomSNUSP";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BoomSNUSP/BoomSNUSP-Prefix.pch";
+				INFOPLIST_FILE = "BoomSNUSPTests/BoomSNUSPTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		0393EF8E166FC23C00C7F5FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BoomSNUSP.app/Contents/MacOS/BoomSNUSP";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BoomSNUSP/BoomSNUSP-Prefix.pch";
+				INFOPLIST_FILE = "BoomSNUSPTests/BoomSNUSPTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0393EF51166FC23C00C7F5FA /* Build configuration list for PBXProject "BoomSNUSP" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0393EF87166FC23C00C7F5FA /* Debug */,
+				0393EF88166FC23C00C7F5FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0393EF89166FC23C00C7F5FA /* Build configuration list for PBXNativeTarget "BoomSNUSP" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0393EF8A166FC23C00C7F5FA /* Debug */,
+				0393EF8B166FC23C00C7F5FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		0393EF8C166FC23C00C7F5FA /* Build configuration list for PBXNativeTarget "BoomSNUSPTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0393EF8D166FC23C00C7F5FA /* Debug */,
+				0393EF8E166FC23C00C7F5FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0393EF4E166FC23C00C7F5FA /* Project object */;
+}
