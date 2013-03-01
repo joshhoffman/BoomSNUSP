@@ -20,6 +20,10 @@
         ipy = 0;
         dpx = 0;
         dpy = 0;
+        quoteMode = NO;
+        dataIndex = 0;
+        inputStream = STD_INPUT;
+        outputStream = STD_OUTPUT;
         direction = RIGHT;
     }
     return self;
@@ -30,6 +34,9 @@
 
 @synthesize codeView;
 @synthesize outputField;
+@synthesize threads;
+@synthesize output;
+@synthesize executeThread;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
@@ -39,6 +46,8 @@
     threads = [[NSMutableArray alloc] init];
     srand(CFAbsoluteTimeGetCurrent());
     output = [[NSMutableString alloc]initWithString:@""];
+    executeThread = nil;
+    stringStack = [[NSString alloc] init];
     //NSRange resetArea = NSMakeRange(0, [[codeView textStorage] length]);
 }
 
@@ -73,7 +82,8 @@
     BOOL checking = YES;
     NSMutableArray *executed = [[NSMutableArray alloc] init];
     //[self ExecuteCode];
-    while((codePos = [self ExecuteCode:[threads objectAtIndex:num]]) > -1)
+    while([executeThread isCancelled] ==NO &&
+          (codePos = [self ExecuteCode:[threads objectAtIndex:num]]) > -1)
     {
         NSRange area = NSMakeRange(codePos, 1);
         //add new coloring
@@ -104,9 +114,9 @@
                 break;
         }
         if([[self DelayCheck] state] == NSOnState)
-            usleep(50000);
+            usleep(500000);
         else
-            usleep(10);
+            usleep(10000);
         
         checking = YES;
         
@@ -125,7 +135,7 @@
             
             if(checking == NO)
                 [executed addObject:[NSNumber numberWithInt:num]];
-            NSLog(@"count %d %d num %d", [executed count], [threads count], num);
+            NSLog(@"count %ul %ul num %d", [executed count], [threads count], num);
             
             if([executed count] == [threads count])
             {
@@ -159,85 +169,100 @@
     }
     //[[codeView textStorage] removeAttribute:NSForegroundColorAttributeName
     //                                  range:resetArea];
-    switch (code[posData->ipy][posData->ipx]) {
-        case '+':
-            data[posData->dpy][posData->dpx]++;
-            break;
-        case '-':
-            data[posData->dpy][posData->dpx]--;
-            break;
-        case '>':
-            posData->dpx++;
-            break;
-        case '<':
-            posData->dpx--;
-            break;
-        case '.':
-            [output appendString:[NSString stringWithFormat:@"%c",
-                               data[posData->dpy][posData->dpx]]];
-            break;
-        case '\\':
-            [self ChangeDirection:posData direction:DIR_RIGHT];
-            break;
-        case '/':
-            [self ChangeDirection:posData direction:DIR_LEFT];
-            break;
-        case '@':
-            [self PushToStack:posData];
-            break;
-        case '#':
-            [self PopFromStack:posData];
-            [self MoveCodePos:posData];
-            break;
-        case '!':
-            [self MoveCodePos:posData];
-            break;
-        case '?':
-            if(data[posData->dpy][posData->dpx] == 0)
-                [self MoveCodePos:posData];
-            break;
-        case ',':
-            [self ReadDataAtPos:posData];
-            break;
-        case ':':
-            posData->dpy--;
-            break;
-        case ';':
-            posData->dpy++;
-            break;
-        case '%':
-            if(data[posData->dpy][posData->dpx] > 0)
-            {
-                data[posData->dpy][posData->dpx] = rand() %
-                    data[posData->dpy][posData->dpx];
-            }
-            break;
-        case '&':
-            // threading
-            [self CreateNewThread:posData];
-            break;
-        default:
-            break;
+    if(posData->quoteMode && code[posData->ipy][posData->ipx] != '"')
+    {
+        data[posData->dataIndex][posData->dpy][posData->dpx++] = code[posData->ipy][posData->ipx];
     }
-    //int codePos = [self GetCodePos];
-    //NSRange area = NSMakeRange(codePos, 1);
-    //NSRange resetArea = NSMakeRange(0, [[codeView textStorage] length]);
-    
-    //remove existing coloring
-    //[[codeView textStorage] removeAttribute:NSForegroundColorAttributeName
-    //                                  range:resetArea];
-    
-    //add new coloring
-    //[[codeView textStorage] addAttribute:NSForegroundColorAttributeName
-    //                               value:[NSColor yellowColor]
-    //                               range:area];
+    else
+    {
+        switch (code[posData->ipy][posData->ipx]) {
+            case '+':
+                data[posData->dataIndex][posData->dpy][posData->dpx]++;
+                break;
+            case '-':
+                data[posData->dataIndex][posData->dpy][posData->dpx]--;
+                break;
+            case '>':
+                posData->dpx++;
+                break;
+            case '<':
+                posData->dpx--;
+                break;
+            case '.':
+                [output appendString:[NSString stringWithFormat:@"%c",
+                                      data[posData->dataIndex][posData->dpy][posData->dpx]]];
+                break;
+            case '\\':
+                [self ChangeDirection:posData direction:DIR_RIGHT];
+                break;
+            case '/':
+                [self ChangeDirection:posData direction:DIR_LEFT];
+                break;
+            case '@':
+                [self PushToStack:posData];
+                break;
+            case '#':
+                [self PopFromStack:posData];
+                [self MoveCodePos:posData];
+                break;
+            case '!':
+                [self MoveCodePos:posData];
+                break;
+            case '?':
+                if(data[posData->dataIndex][posData->dpy][posData->dpx] == 0)
+                    [self MoveCodePos:posData];
+                break;
+            case ',':
+                [self ReadDataAtPos:posData];
+                break;
+            case ':':
+                posData->dpy--;
+                break;
+            case ';':
+                posData->dpy++;
+                break;
+            case '%':
+                if(data[posData->dpy][posData->dpx] > 0)
+                {
+                    data[posData->dataIndex][posData->dpy][posData->dpx] = rand() %
+                    data[posData->dataIndex][posData->dpy][posData->dpx];
+                }
+                break;
+            case '&':
+                // threading
+                [self CreateNewThread:posData];
+                break;
+            case '^':
+                data[posData->dataIndex][posData->dpy][posData->dpx] =
+                data[posData->dataIndex][posData->dpy][posData->dpx] * data[posData->dataIndex][posData->dpy][posData->dpx];
+                break;
+            case '"':
+                if(posData->quoteMode == YES)
+                    posData->quoteMode = NO;
+                else
+                    posData->quoteMode = YES;
+                break;
+            case 'Y':
+                // fork you!
+                // So, this creates a new thread with its own data field
+                // Sets the current value of the current cell in the parent
+                // to 0, and to 1 in the child.
+                // The data in the child is a COPY of the main memory,
+                // but still separate.
+                // Also creates a pipe.. The output '.' of the parent is the
+                // input ',' of the child
+                // Also no need to increment the instruction pointer an additional time
+                // Just let it go!
+                break;
+            default:
+                break;
+        }
+    }
     NSLog(@"%c %d %d %d", code[posData->ipy][posData->ipx],
-          data[posData->dpy][posData->dpx], posData->ipy, posData->ipx);
+          data[posData->dataIndex][posData->dpy][posData->dpx], posData->ipy, posData->ipx);
     [self MoveCodePos:posData];
     [[self outputField]setStringValue:output];
-    //NSString *out = [[NSString alloc] initWithCString:data[0]
-    //                                        encoding:NSUTF8StringEncoding];
-    //NSLog(@"%@", output);
+    NSLog(@"%@", output);
     return [self GetCodePos:posData];
 }
 
@@ -259,7 +284,7 @@
     NSString *inp = [[self InputField] stringValue];
     if(readPos < [inp length])
     {
-        data[posData->dpy][posData->dpx] = [inp characterAtIndex:readPos];
+        data[posData->dataIndex][posData->dpy][posData->dpx] = [inp characterAtIndex:readPos];
         readPos++;
     }
 }
@@ -287,8 +312,8 @@
     }
     
     ret = i+posData->ipx;
-    if(ret >= [test length]-1)
-        ret--;
+    while(ret >= ([test length]))
+          ret--;
     return ret;
 }
 
@@ -372,8 +397,11 @@
     {
         for(int j = 0; j < CODE_SIZE; j++)
         {
+            for(int k = 0; k < MAX_PROC_COUNT; k++)
+            {
+                data[k][i][j] = 0;
+            }
             code[i][j] = 0;
-            data[i][j] = 0;
         }
     }
     [threads removeAllObjects];
@@ -424,6 +452,11 @@
 - (IBAction)Run:(id)sender {
     [self ResetData];
     [self Parse];
+    if(executeThread != nil)
+    {
+        [executeThread cancel];
+        executeThread = nil;
+    }
     executeThread = [[NSThread alloc] initWithTarget:self
                                             selector:@selector(ExecuteThread)
                                               object:nil];
