@@ -48,9 +48,10 @@
     output = [[NSMutableString alloc]initWithString:@""];
     executeThread = nil;
     stringStack = [[NSString alloc] init];
-    //NSRange resetArea = NSMakeRange(0, [[codeView textStorage] length]);
 }
 
+// Starting a new function. Push the data pointer, stack pointer,
+// and direction to the stack
 - (void)PushToStack:(dataPos*)posData;
 {
     dataPos *newData = [[dataPos alloc] init];
@@ -63,6 +64,9 @@
     [posData->CallStack addObject:newData];
 }
 
+// Returning from a function call. Reset the stack and data pointers
+// to the values when the function was entered
+// ExecuteThread will advance the pointers
 - (void)PopFromStack:(dataPos*)posData
 {
     dataPos *lastItem = [posData->CallStack lastObject];
@@ -75,13 +79,14 @@
     posData->direction = lastItem->direction;
 }
 
+// ExecuteThread runs in the background and handles text color, calling ExecuteCode,
+// and randomizing thread execution
 - (void)ExecuteThread
 {
     int num = 0;
     int codePos = 0;
     BOOL checking = YES;
     NSMutableArray *executed = [[NSMutableArray alloc] init];
-    //[self ExecuteCode];
     while([executeThread isCancelled] ==NO &&
           (codePos = [self ExecuteCode:[threads objectAtIndex:num]]) > -1)
     {
@@ -113,6 +118,8 @@
                                                range:area];
                 break;
         }
+        
+        // Slow execution down
         if([[self DelayCheck] state] == NSOnState)
             usleep(500000);
         else
@@ -154,6 +161,8 @@
     return;
 }
 
+// Where the data processing occurs. One execution cycle corresponds to
+// one call of this function
 - (int)ExecuteCode:(dataPos*)posData
 {
     if(posData == nil)
@@ -167,8 +176,7 @@
     {
         return -1;
     }
-    //[[codeView textStorage] removeAttribute:NSForegroundColorAttributeName
-    //                                  range:resetArea];
+    
     if(posData->quoteMode && code[posData->ipy][posData->ipx] != '"')
     {
         data[posData->dataIndex][posData->dpy][posData->dpx++] = code[posData->ipy][posData->ipx];
@@ -266,6 +274,8 @@
     return [self GetCodePos:posData];
 }
 
+// Create new thread and add it to the thread list
+// Data/Code pointers will be updated in execute code
 - (void)CreateNewThread:(dataPos *)posData
 {
     dataPos *new = [[dataPos alloc] init];
@@ -279,6 +289,7 @@
     [threads addObject:new];
 }
 
+// Get the value of the data for a given thread at it's current location
 - (void)ReadDataAtPos:(dataPos*)posData
 {
     NSString *inp = [[self InputField] stringValue];
@@ -289,6 +300,7 @@
     }
 }
 
+// Get the value of the code for a given thread at it's current location
 - (int)GetCodePos:(dataPos*)posData
 {
     int ret = 0;
@@ -317,13 +329,10 @@
     return ret;
 }
 
+// Current code is to change the position. Determine which way the
+// execution will change to
 - (void)ChangeDirection:(dataPos*) posData direction:(int)newDir
 {
-    /*posData->direction += newDir;
-    if(posData->direction == 0)
-        posData->direction = UP;
-    else if(posData->direction == 5)
-        posData->direction = RIGHT;*/
     if(posData->direction == RIGHT)
     {
         if(newDir != DIR_LEFT)
@@ -370,6 +379,8 @@
     }
 }
 
+// Called at the end of every ExecuteCode call. Advances the current thread's
+// code pointer
 - (void)MoveCodePos:(dataPos*)posData
 {
     switch (posData->direction) {
@@ -412,6 +423,7 @@
     output = [NSMutableString stringWithString:@""];
 }
 
+// Read the value of the input text box
 - (void)Parse
 {
     NSString *test = [[codeView textStorage] string];
